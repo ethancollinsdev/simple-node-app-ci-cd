@@ -20,6 +20,9 @@ app.get("/:num", (req, res) => {
 });
 
 const port = process.env.PORT || 5050;
-app.listen(port, () => {
+
+const server = app.listen(port, () => {
 	console.log("Listening on port " + port);
 });
+
+module.exports = server;

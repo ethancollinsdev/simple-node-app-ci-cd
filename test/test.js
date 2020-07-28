@@ -1,6 +1,7 @@
 let assert = require("assert");
 let base_url = `http://localhost:${process.env.PORT || 5050}/`;
 const fetch = require("node-fetch");
+const server = require("../index.js");
 
 describe("Get Routes", () => {
 	describe("Get Index", () => {
@@ -26,6 +27,8 @@ describe("Get Routes", () => {
 			fetch(base_url + num).then((res) => {
 				assert.equal(200, res.status);
 				done();
+
+				server.close();
 			});
 		});
 	});
